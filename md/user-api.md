@@ -109,16 +109,48 @@ idに指定したユーザーの情報を更新します。
             "message": "user successfully updated"
         }
 
++ Response 400
+    + Body
+      　{
+            "message":"validation error",
+            "errors":[
+                {
+                    "field":"name",
+                    "messages":[
+                        "cannot be empty",
+                        "maximum length is 255"
+                    ]
+                },
+                {
+                    "field":"birthdate",
+                    "messages":[
+                        "cannot be null",
+                        "format should be yyyy-MM-dd",
+                        "cannot set future date"
+                    ]
+                }
+            ]
+        }
+
 + Response 404 (application/json)
   + Body
         {
             "message": "user not found"
         }
 
-## DELETE /users/{id}
+## PATCH /users/{id}
+idに指定したユーザーの情報を論理削除します。
+
++ deleted (boolean) - 削除フラグ。true:有効、false:削除。
 
 + Parameters
   + id: 1 (number) - ユーザーのID
+
++ Request (application/json)
+    + Body
+        {
+            "deleted": true
+        }
 
 + Response 200 (application/json)
   + Body
