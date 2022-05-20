@@ -23,6 +23,7 @@ FORMAT: 1A
            "id": 1,
            "message": "user successfully created"
         }
+
 + Response 400
   + Body
         {
