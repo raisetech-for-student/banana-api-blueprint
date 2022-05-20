@@ -1,0 +1,46 @@
+# ワークフローファイルは、リポジトリの.github/workflowsディレクトリに保存する必要がある。
+
+# ワークフローの名前（任意の名前）
+name: Upload Index.html
+
+# ワークフローのトリガーのイベント
+on:
+  pull_request:
+    # pathsフィルタのパターンにマッチするパスがあれば、ワークフローは実行される
+    paths:
+      - 'md/user-api.md'
+
+jobs:
+  build:
+    # GitHubホストランナーの選択
+    runs-on: ubuntu-latest
+    
+    # 一連のタスク
+    steps:
+      # ステップの一部として実行されるアクションの選択
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      
+      # dockerを起動
+      - name: Up container
+        run: docker compose up -d
+      
+      # user-api.mdをindex.htmlに出力
+      - name: Exec aglio
+        run: docker compose exec api aglio -i md/user-api.md -o docs/index.html
+  
+      # GITHUB_ACTOR:ワークフローを開始するユーザーまたはアプリの名前
+      - name: Commit files
+        run: |
+          git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --local user.name "${GITHUB_ACTOR}"
+          git add .
+          git commit -m "[CI] Update index.html" -a
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@main
+        with:
+          github_token: ${{ secrets/GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
+    
