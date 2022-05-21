@@ -139,19 +139,13 @@ idに指定したユーザーの情報を更新します。
             "message": "user not found"
         }
 
-## PATCH /users/{id}
+## PATCH /users/delete/{id}
 idに指定したユーザーの情報を論理削除します。
 
-+ deleted (boolean) - 削除フラグ。true:有効、false:削除。
++ deleted (boolean) - 削除フラグ。0:有効、1:削除。
 
 + Parameters
   + id: 1 (number) - ユーザーのID
-
-+ Request (application/json)
-    + Body
-        {
-            "deleted": true
-        }
 
 + Response 200 (application/json)
   + Body
