@@ -61,6 +61,16 @@ idに指定したユーザーの情報を取得します。
            "birthdate": "2022-01-01"
         } 
 
++ Response 400 (application/json)
+  + Body
+        {
+            "message":"validation error",
+            "error":{
+                "field":"id",
+                "message":"cannot be string"
+            }
+        }
+
 + Response 404 (application/json)
   + Body
         {
