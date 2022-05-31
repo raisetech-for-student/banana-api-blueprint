@@ -20,7 +20,7 @@ FORMAT: 1A
 + Response 201 (application/json)
   + Body
         {
-           "id": 1,
+           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
            "message": "user successfully created"
         }
 
@@ -51,24 +51,14 @@ FORMAT: 1A
 idに指定したユーザーの情報を取得します。
 
 + Parameters
-  + id: 1 (number) - ユーザーのID
+  + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
 + Response 200 (application/json)
   + Body
         {
-           "id": 1,
+           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
            "name": "banana sugimoto",
            "birthdate": "2022-01-01"
-        } 
-
-+ Response 400 (application/json)
-  + Body
-        {
-            "message":"validation error",
-            "error":{
-                "field":"id",
-                "message":"cannot be string"
-            }
         }
 
 + Response 404 (application/json)
@@ -88,7 +78,7 @@ idに指定したユーザーの情報を取得します。
   + Body
         [
             {
-                "id": 1,
+                "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
                 "name": "banana sugimoto"
                 "birthdate": "2022-01-01"
             }
@@ -105,12 +95,12 @@ idに指定したユーザーの情報を更新します。
 + birthdate (string, required) - 生年月日。yyyy-MM-dd形式。未来日付は不可。
 
 + Parameters
-  + id: 1(number) - ユーザーのID
+  + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
 + Request (application/json)
   + Body
         {
-            "name": "banana sugimoto"
+            "name": "ringo sugimoto"
             "birthdate": "2022-01-01"
         }
 
@@ -155,7 +145,7 @@ idに指定したユーザーの情報を論理削除します。
 + deleted (boolean) - 削除フラグ。0:有効、1:削除。
 
 + Parameters
-  + id: 1 (number) - ユーザーのID
+  + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
 + Response 200 (application/json)
   + Body
