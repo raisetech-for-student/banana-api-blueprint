@@ -20,7 +20,7 @@ FORMAT: 1A
 + Response 201 (application/json)
   + Body
         {
-           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+           "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
            "message": "user successfully created"
         }
 
@@ -56,7 +56,7 @@ idに指定したユーザーの情報を取得します。
 + Response 200 (application/json)
   + Body
         {
-           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+           "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
            "name": "banana sugimoto",
            "birthdate": "2022-01-01"
         }
@@ -78,7 +78,7 @@ idに指定したユーザーの情報を取得します。
   + Body
         [
             {
-                "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+                "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
                 "name": "banana sugimoto"
                 "birthdate": "2022-01-01"
             }
