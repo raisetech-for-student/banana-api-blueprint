@@ -104,6 +104,16 @@ idに指定したユーザーの情報を更新します。
             "birthdate": "2022-01-01"
         }
 
+  + Body
+        {
+            "name": "ringo sugimoto"
+        }
+
+  + Body
+        {
+            "birthdate": "2022-01-01"
+        }
+
 + Response 200 (application/json)
   + Body
         {
@@ -111,27 +121,57 @@ idに指定したユーザーの情報を更新します。
         }
 
 + Response 400
-    + Body
-      　{
+  + Body
+        {
             "message":"validation error",
             "errors":[
-                {
-                    "field":"name",
-                    "messages":[
-                        "cannot be empty",
-                        "maximum length is 255"
-                    ]
-                },
-                {
-                    "field":"birthdate",
-                    "messages":[
-                        "cannot be null",
-                        "format should be yyyy-MM-dd",
-                        "cannot set future date"
-                    ]
-                }
+               {
+                  "field":"name",
+                  "messages":[
+                      "cannot be empty",
+                      "maximum length is 255"
+                  ]
+               },
+               {
+                  "field":"birthdate",
+                  "messages":[
+                      "cannot be null",
+                      "format should be yyyy-MM-dd",
+                      "cannot set future date"
+                  ]
+               }
             ]
         }
+
+  + Body
+        {
+            "message":"validation error",
+            "error":{
+                "field":"name",
+                "message":[
+                    "cannot be empty",
+                    "maximum length is 255"
+                ]
+            }
+        }
+
+  + Body
+        {
+            "message":"validation error",
+            "error":{
+                "field":"birhdate",
+                "messages":[
+                    "cannot be null",
+                    "format should be yyyy-MM-dd",
+                    "cannot set future date"
+                ]
+            }
+        }
+
+  + Body
+        {
+            "message": "invalid value"
+        }               
 
 + Response 404 (application/json)
   + Body
