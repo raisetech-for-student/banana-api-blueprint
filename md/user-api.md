@@ -139,7 +139,7 @@ idに指定したユーザーの情報を更新します。
             "message": "user not found"
         }
 
-## PATCH /users/delete/{id}
+## DELETE /users/{id}
 idに指定したユーザーの情報を論理削除します。
 
 + deleted (boolean) - 削除フラグ。0:有効、1:削除。
