@@ -104,16 +104,19 @@ idに指定したユーザーの情報を更新します。
             "birthdate": "2022-01-01"
         }
 
++ Request (application/json)
   + Body
         {
             "name": "ringo sugimoto"
         }
 
++ Request (application/json)
   + Body
         {
             "birthdate": "2022-01-01"
         }
 
++ Request (application/json)
   + Body
         {}
 
@@ -146,6 +149,7 @@ idに指定したユーザーの情報を更新します。
             ]
         }
 
++ Response 400
   + Body
         {
             "message":"validation error",
@@ -158,6 +162,7 @@ idに指定したユーザーの情報を更新します。
             }
         }
 
++ Response 400
   + Body
         {
             "message":"validation error",
@@ -171,6 +176,7 @@ idに指定したユーザーの情報を更新します。
             }
         }
 
++ Response 400
   + Body
         {
             "message": "invalid value"
