@@ -114,6 +114,9 @@ idに指定したユーザーの情報を更新します。
             "birthdate": "2022-01-01"
         }
 
+  + Body
+        {}
+
 + Response 200 (application/json)
   + Body
         {
