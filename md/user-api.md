@@ -20,7 +20,7 @@ FORMAT: 1A
 + Response 201 (application/json)
   + Body
         {
-           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+           "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
            "message": "user successfully created"
         }
 
@@ -56,7 +56,7 @@ idに指定したユーザーの情報を取得します。
 + Response 200 (application/json)
   + Body
         {
-           "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+           "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
            "name": "banana sugimoto",
            "birthdate": "2022-01-01"
         }
@@ -78,7 +78,7 @@ idに指定したユーザーの情報を取得します。
   + Body
         [
             {
-                "id": 01FZMTP19VSKWBQPXJA4GKZ2Y3,
+                "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
                 "name": "banana sugimoto"
                 "birthdate": "2022-01-01"
             }
@@ -104,6 +104,22 @@ idに指定したユーザーの情報を更新します。
             "birthdate": "2022-01-01"
         }
 
++ Request (application/json)
+  + Body
+        {
+            "name": "ringo sugimoto"
+        }
+
++ Request (application/json)
+  + Body
+        {
+            "birthdate": "2022-01-01"
+        }
+
++ Request (application/json)
+  + Body
+        {}
+
 + Response 200 (application/json)
   + Body
         {
@@ -111,27 +127,60 @@ idに指定したユーザーの情報を更新します。
         }
 
 + Response 400
-    + Body
-      　{
+  + Body
+        {
             "message":"validation error",
             "errors":[
-                {
-                    "field":"name",
-                    "messages":[
-                        "cannot be empty",
-                        "maximum length is 255"
-                    ]
-                },
-                {
-                    "field":"birthdate",
-                    "messages":[
-                        "cannot be null",
-                        "format should be yyyy-MM-dd",
-                        "cannot set future date"
-                    ]
-                }
+               {
+                  "field":"name",
+                  "messages":[
+                      "cannot be empty",
+                      "maximum length is 255"
+                  ]
+               },
+               {
+                  "field":"birthdate",
+                  "messages":[
+                      "cannot be null",
+                      "format should be yyyy-MM-dd",
+                      "cannot set future date"
+                  ]
+               }
             ]
         }
+
++ Response 400
+  + Body
+        {
+            "message":"validation error",
+            "error":{
+                "field":"name",
+                "message":[
+                    "cannot be empty",
+                    "maximum length is 255"
+                ]
+            }
+        }
+
++ Response 400
+  + Body
+        {
+            "message":"validation error",
+            "error":{
+                "field":"birhdate",
+                "messages":[
+                    "cannot be null",
+                    "format should be yyyy-MM-dd",
+                    "cannot set future date"
+                ]
+            }
+        }
+
++ Response 400
+  + Body
+        {
+            "message": "invalid value"
+        }               
 
 + Response 404 (application/json)
   + Body
@@ -139,7 +188,7 @@ idに指定したユーザーの情報を更新します。
             "message": "user not found"
         }
 
-## PATCH /users/delete/{id}
+## DELETE /users/{id}
 idに指定したユーザーの情報を論理削除します。
 
 + deleted (boolean) - 削除フラグ。0:有効、1:削除。
