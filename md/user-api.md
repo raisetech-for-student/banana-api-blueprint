@@ -179,7 +179,7 @@ idに指定したユーザーの情報を更新します。
 + Response 400
   + Body
         {
-            "message": "invalid value"
+            "message": "no value specified"
         }               
 
 + Response 404 (application/json)
