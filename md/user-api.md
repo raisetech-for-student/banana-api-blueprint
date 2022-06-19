@@ -127,7 +127,7 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
 -H 'Content-Type: application/json' \
 -d '{
     "name": "ringo sugimoto",
-    "birthdate": "2022-01-01"
+    "birthdate": "2022-02-01"
 }' 
 ```
 
@@ -135,7 +135,7 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
   + Body
         {
             "name": "ringo sugimoto"
-            "birthdate": "2022-01-01"
+            "birthdate": "2022-02-01"
         }
 
 + Request (application/json)
@@ -147,7 +147,7 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
 + Request (application/json)
   + Body
         {
-            "birthdate": "2022-01-01"
+            "birthdate": "2022-02-01"
         }
 
 + Request (application/json)
