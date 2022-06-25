@@ -10,7 +10,7 @@ FORMAT: 1A
 + name (string, required) - ユーザー名。255文字以内。
 + birthdate (string, required) - 生年月日。yyyy-MM-dd形式。未来日付は不可。
 
-+ Request
++ Request Sample
 ```
 curl -X POST 'http://localhost:8080/users' \
 -H 'Content-Type: application/json' \
@@ -63,7 +63,7 @@ idに指定したユーザーの情報を取得します。
 + Parameters
   + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
-+ Request
++ Request Sample
 ```
 curl http://localhost:8080/users/{id}
 ```
@@ -89,7 +89,7 @@ curl http://localhost:8080/users/{id}
   + name (string, mandatory) - ユーザー名。前方一致で検索。
   + birthdate (string, optional) - yyyy-MM-dd形式。完全一致で検索。
 
-+ Request
++ Request Sample
 ```
 curl http://localhost:8080/users
 {
@@ -121,7 +121,7 @@ idに指定したユーザーの情報を更新します。
 + Parameters
   + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
-+ Request
++ Request Sample
 ```
 curl -i -X PATCH http://localhost:8080/users/{id} \
 -H 'Content-Type: application/json' \
@@ -230,7 +230,7 @@ idに指定したユーザーの情報を論理削除します。
 + Parameters
   + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
-+ Request
++ Request Sample
 ```
 curl -i -X PATCH http://localhost:8080/users/{id} \
 -H 'Content-Type: application/json' \
