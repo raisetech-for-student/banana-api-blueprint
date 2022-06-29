@@ -82,20 +82,16 @@ curl http://localhost:8080/users/{id}
             "message": "user not found"
         }
 
-## GET /users
+## GET /users{?name,birthdate}
 ユーザーを検索します。
 
 + Parameters
-  + name (string, mandatory) - ユーザー名。前方一致で検索。
-  + birthdate (string, optional) - yyyy-MM-dd形式。完全一致で検索。
+  + name: banana sugimoto (string, mandatory) - ユーザー名。前方一致で検索。
+  + birthdate: `2022-01-01` (string, optional) - yyyy-MM-dd形式。完全一致で検索。
 
 + Request Sample
 ```
-curl http://localhost:8080/users
-{
-    "name": "banana sugimoto",
-    "birthdate: "2022-01-01"
-}
+curl http://localhost:8080/users?name=banana sugimoto&birthdate=2022-02-02
 ```
 
 + Response 200 (application/json)
