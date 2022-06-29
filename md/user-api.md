@@ -134,22 +134,6 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
             "birthdate": "2022-02-01"
         }
 
-+ Request (application/json)
-  + Body
-        {
-            "name": "ringo sugimoto"
-        }
-
-+ Request (application/json)
-  + Body
-        {
-            "birthdate": "2022-02-01"
-        }
-
-+ Request (application/json)
-  + Body
-        {}
-
 + Response 200 (application/json)
   + Body
         {
@@ -161,22 +145,28 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
         {
             "message":"validation error",
             "errors":[
-               {
-                  "field":"name",
-                  "messages":[
-                      "cannot be empty",
-                      "maximum length is 255"
-                  ]
-               },
-               {
-                  "field":"birthdate",
-                  "messages":[
-                      "cannot be null",
-                      "format should be yyyy-MM-dd",
-                      "cannot set future date"
-                  ]
-               }
+                {
+                    "field":"name",
+                    "messages":[
+                        "cannot be empty",
+                        "maximum length is 255"
+                    ]
+                },
+                {
+                    "field":"birthdate",
+                    "messages":[
+                        "cannot be null",
+                        "format should be yyyy-MM-dd",
+                        "cannot set future date"
+                    ]
+                }
             ]
+        }
+
++ Request (application/json)
+  + Body
+        {
+            "name": "ringo sugimoto"
         }
 
 + Response 400
@@ -192,12 +182,18 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
             }
         }
 
++ Request (application/json)
+  + Body
+        {
+            "birthdate": "2022-02-01"
+        }
+
 + Response 400
   + Body
         {
             "message":"validation error",
             "error":{
-                "field":"birhdate",
+            "field":"birhdate",
                 "messages":[
                     "cannot be null",
                     "format should be yyyy-MM-dd",
@@ -206,11 +202,15 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
             }
         }
 
++ Request (application/json)
+  + Body
+        {}
+
 + Response 400
   + Body
         {
             "message": "no value specified"
-        }               
+        }
 
 + Response 404 (application/json)
   + Body
