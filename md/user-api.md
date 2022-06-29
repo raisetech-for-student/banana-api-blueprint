@@ -228,11 +228,7 @@ idに指定したユーザーの情報を論理削除します。
 
 + Request Sample
 ```
-curl -i -X PATCH http://localhost:8080/users/{id} \
--H 'Content-Type: application/json' \
--d '{
-    "deleted": 1
-}' 
+curl -X PATCH http://localhost:8080/users/{id}
 ```
 
 + Response 200 (application/json)
