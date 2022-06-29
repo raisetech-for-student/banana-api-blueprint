@@ -91,7 +91,7 @@ curl http://localhost:8080/users/{id}
 
 + Request Sample
 ```
-curl http://localhost:8080/users?name=banana sugimoto&birthdate=2022-02-02
+curl http://localhost:8080/users?name=banana sugimoto&birthdate=2022-01-01
 ```
 
 + Response 200 (application/json)
@@ -228,7 +228,7 @@ idに指定したユーザーの情報を論理削除します。
 
 + Request Sample
 ```
-curl -X PATCH http://localhost:8080/users/{id}
+curl -X DLETE http://localhost:8080/users/{id}
 ```
 
 + Response 200 (application/json)
