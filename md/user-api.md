@@ -99,7 +99,7 @@ curl http://localhost:8080/users?name=banana sugimoto&birthdate=2022-01-01
         [
             {
                 "id": "01FZMTP19VSKWBQPXJA4GKZ2Y3",
-                "name": "banana sugimoto"
+                "name": "banana sugimoto",
                 "birthdate": "2022-01-01"
             }
         ]
@@ -130,7 +130,7 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
 + Request (application/json)
   + Body
         {
-            "name": "ringo sugimoto"
+            "name": "ringo sugimoto",
             "birthdate": "2022-02-01"
         }
 
@@ -161,55 +161,6 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
                     ]
                 }
             ]
-        }
-
-+ Request (application/json)
-  + Body
-        {
-            "name": "ringo sugimoto"
-        }
-
-+ Response 400
-  + Body
-        {
-            "message":"validation error",
-            "error":{
-                "field":"name",
-                "message":[
-                    "cannot be empty",
-                    "maximum length is 255"
-                ]
-            }
-        }
-
-+ Request (application/json)
-  + Body
-        {
-            "birthdate": "2022-02-01"
-        }
-
-+ Response 400
-  + Body
-        {
-            "message":"validation error",
-            "error":{
-            "field":"birhdate",
-                "messages":[
-                    "cannot be null",
-                    "format should be yyyy-MM-dd",
-                    "cannot set future date"
-                ]
-            }
-        }
-
-+ Request (application/json)
-  + Body
-        {}
-
-+ Response 400
-  + Body
-        {
-            "message": "no value specified"
         }
 
 + Response 404 (application/json)
