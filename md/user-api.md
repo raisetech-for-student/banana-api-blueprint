@@ -221,8 +221,6 @@ curl -i -X PATCH http://localhost:8080/users/{id} \
 ## DELETE /users/{id}
 idに指定したユーザーの情報を論理削除します。
 
-+ deleted (boolean) - 削除フラグ。0:有効、1:削除。
-
 + Parameters
   + id: 01FZMTP19VSKWBQPXJA4GKZ2Y3 - ユーザーのID。採番は26文字のULID。
 
